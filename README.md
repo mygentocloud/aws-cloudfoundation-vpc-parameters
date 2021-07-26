@@ -46,8 +46,9 @@ You may need to update image-id that availble on your different region.
 ## ii ) solution
 you may need to add in parameter for RegionCode, VPCCIDR, AZ1Code
 
-'''bash
+```bash
 aws cloudformation update-stack --stack-name sgpvpc --template-body file://vpc.yaml --parameters ParameterKey='PublicSubnet1CIDR',ParameterValue='192.168.1.0/24' ParameterKey='RegionCode',ParameterValue='sgp' ParameterKey='AZ1Code',ParameterValue='sgpaz1' ParameterKey='VPCCIDR',ParameterValue='192.168.0.0/16'
+```
 
 ### iii) `sgvpc` for "PublicSubnet2CIDR & vpcpublicSubnet2"
 
