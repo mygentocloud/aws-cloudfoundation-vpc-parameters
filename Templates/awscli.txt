@@ -14,3 +14,11 @@ aws cloudformation update-stack --stack-name sgpvpc --template-body file://vpc.y
 
 
 aws cloudformation create-stack --stack-name sydvpc --template-body file://vpc.yaml --parameters ParameterKey='VPCCIDR',ParameterValue='172.16.0.0/16' ParameterKey='PublicSubnet1CIDR',ParameterValue='172.16.1.0/24' ParameterKey='PublicSubnet2CIDR',ParameterValue='172.16.2.0/24' ParameterKey='PublicSubnet3CIDR',ParameterValue='172.16.3.0/24' ParameterKey='RegionCode',ParameterValue='syd' ParameterKey='AZ1Code',ParameterValue='sydaz1' ParameterKey='AZ2Code',ParameterValue='sydaz2' ParameterKey='AZ3Code',ParameterValue='sydaz3' --region ap-southeast-2
+
+
+$ aws cloudformation create-stack --stack-name sgp-syd-peering --template-body file://peering.yaml --parameters ParameterKey='vpc1StackName',ParameterValue='sgvpc' ParameterKey='vpc2StackName',ParameterValue='sydvpc' ParameterKey='PeerVPCAccountId',ParameterValue='179284309646' ParameterKey='PeerRegionCode',ParameterValue='ap-southeast-2'
+{
+    "StackId": "arn:aws:cloudformation:ap-southeast-1:179284309646:stack/sgp-syd-peering/5f59dd10-e937-11eb-a589-0a07c0be2c3a"
+}
+
+aws cloudformation create-stack --stack-name sydvpc --template-body file://vpc.yaml --parameters ParameterKey='VPCCIDR',ParameterValue='172.16.0.0/16' ParameterKey='PublicSubnet1CIDR',ParameterValue='172.16.1.0/24' ParameterKey='PublicSubnet2CIDR',ParameterValue='172.16.2.0/24' ParameterKey='PublicSubnet3CIDR',ParameterValue='172.16.3.0/24' ParameterKey='RegionCode',ParameterValue='syd' ParameterKey='AZ1Code',ParameterValue='sydaz1' ParameterKey='AZ2Code',ParameterValue='sydaz2' ParameterKey='AZ3Code',ParameterValue='sydaz3' --region ap-southeast-2

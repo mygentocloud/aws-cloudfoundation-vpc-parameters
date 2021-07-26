@@ -50,7 +50,7 @@ you may need to add in parameter for RegionCode, VPCCIDR, AZ1Code
 aws cloudformation update-stack --stack-name sgpvpc --template-body file://vpc.yaml --parameters ParameterKey='PublicSubnet1CIDR',ParameterValue='192.168.1.0/24' ParameterKey='RegionCode',ParameterValue='sgp' ParameterKey='AZ1Code',ParameterValue='sgpaz1' ParameterKey='VPCCIDR',ParameterValue='192.168.0.0/16'
 ```
 
-### iii) `sgvpc` for "PublicSubnet2CIDR & vpcpublicSubnet2"
+### iii) `sgpvpc` for "PublicSubnet2CIDR & vpcpublicSubnet2"
 
 ```bash
 aws cloudformation update-stack --stack-name sgpvpc --template-body file://vpc.yaml --parameters ParameterKey='PublicSubnet1CIDR',ParameterValue='192.168.1.0/24' ParameterKey='RegionCode',ParameterValue='sgp' ParameterKey='AZ1Code',ParameterValue='sgpaz1' ParameterKey='VPCCIDR',ParameterValue='192.168.0.0/16' ParameterKey='PublicSubnet2CIDR',ParameterValue='192.168.2.0/24' ParameterKey='AZ2Code',ParameterValue='sgpaz2' ParameterKey='PublicSubnet3CIDR'
@@ -117,5 +117,8 @@ aws cloudformation create-stack --stack-name sydvpc-public-instance --template-b
 ```bash
 aws cloudformation create-stack --stack-name tyovpc-public-instance --template-body file://vpc-public-instance.yaml --parameters ParameterKey='vpcsecurityGroupStackName',ParameterValue='tkovpc-securitygroup' ParameterKey='vpcStackName',ParameterValue='tkovpc' --region ap-northeast-1
 ```
+4. Peering 
+- [peering.yaml](./Templates/peering.yaml)
+
 You may need to update image-id that availble on your different region.
 ![header image](outputs-images/instance-imageid-err-01.png)
