@@ -12,7 +12,7 @@ Resources:
   vpcCustomSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupDescription: 'gritworks-master vpc Custom Security Group'
+      GroupDescription: 'mygentocloud-master vpc Custom Security Group'
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: 22
@@ -35,10 +35,10 @@ Resources:
           !Sub ${vpcStackName}-VPCID 
       Tags:
         - Key: 'Name'
-          Value: 'gritworks Master VPC Security Group'
+          Value: 'mygentocloud Master VPC Security Group'
 Outputs:
   vpcCustomSecurityGroupID: #logicalID
-    Description: 'gritworks Master VPC SecurityGroup ID'
+    Description: 'mygentocloud Master VPC SecurityGroup ID'
     Value:
       !Ref vpcCustomSecurityGroup # the vaule of export is here
     Export:

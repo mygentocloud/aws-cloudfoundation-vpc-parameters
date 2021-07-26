@@ -24,7 +24,7 @@ Resources:
       InstanceType: t2.micro
       SubnetId:
         Fn::ImportValue: !Sub ${vpcStackName}-publicSubnet1ID
-      KeyName: kumoribay-master-sg
+      KeyName: ML-master-sg
       Tags:
         - Key: "Name"
           Value: "vpc1-public-instance-1"
